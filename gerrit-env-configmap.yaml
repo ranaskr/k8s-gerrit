@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: gerrit-env
+data:
+  AUTH_LOGOUTURL: http://localhost/gerrit/
+  AUTH_TYPE: LDAP
+  INITIAL_ADMIN_USER: ###INITIAL_ADMIN_USER###
+  INITIAL_ADMIN_PASSWORD: ###INITIAL_ADMIN_PASSWORD###
+  LDAP_SERVER: ldap:389
+  LDAP_ACCOUNTPATTERN: (cn=${username})
+  LDAP_ACCOUNTBASE: dc=ldap,dc=example,dc=com
+  LDAP_ACCOUNTFULLNAME: ${cn}
+  LDAP_GROUPPATTERN: (cn=${groupname})
+  LDAP_USERNAME: cn=admin,dc=ldap,dc=example,dc=com
+  LDAP_PASSWORD: ###LDAP_PASSWORD###
+  LDAP_GROUPBASE: ou=groups,dc=ldap,dc=example,dc=com
+  LDAP_ACCOUNTEMAILADDRESS: mail
+  LDAP_GROUPMEMBERPATTERN: (uniqueMember=${dn})
+  GERRIT_USERNAME: gerrit
+  GERRIT_PASSWORD: ###GERRIT_PASSWORD###
+  DATABASE_TYPE: mysql
+  DB_PASSWORD: gerrit
+  DB_NAME: gerrit
+  HTTPD_LISTENURL: proxy-http://0.0.0.0:8080/gerrit
+  WEBURL: http://a3960b948f5fb11e7808f0220b82c57a-1840909767.ap-south-1.elb.amazonaws.com/gerrit/
+  DB_PORT: "3306"
+  JENKINS_PASSWORD: ###JENKINS_PASSWORD###
+  DOWNLOAD_SCHEME: http
+  DB_HOSTNAME: gerrit
+  DB_USER: gerrit
+  USER_EMAIL: gerrit@adop
+  USER_NAME: Gerrit Code Review  
+  REPO_PATH: /var/git/repos
+  USER: root

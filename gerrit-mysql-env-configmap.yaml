@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gerrit-mysql-env
+data:
+  MYSQL_DATABASE: gerrit
+  MYSQL_PASSWORD: gerrit
+  MYSQL_ROOT_PASSWORD: gerrit
+  MYSQL_USER: gerrit
